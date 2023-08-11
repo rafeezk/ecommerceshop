@@ -6,7 +6,6 @@ import { CartContext } from '../contexts/CartContext';
 const Products = ({ Product }) => {
   // console.log(Product)
      {/* Destruction Products */}
-    //  Ini jua jadi = Product
      const { id, image,category, title, price} = Product;
      const {AddToCart} = useContext(CartContext)
     //  console.log(image)
@@ -15,9 +14,9 @@ const Products = ({ Product }) => {
     <div className="border h-[300px] overflow-hidden relative group transition">
       <div className="w-full h-full flex justify-center items-center">
         {/* images */}
-        <div className="w-[200px] mx-auto flex justify-center items-center">
+        <Link to={`/product/${id}`} className="w-[200px] mx-auto flex justify-center items-center">
           <img src={image} alt="gambar rusak" className='max-h-[150px] group-hover:scale-110 transition-all'/>
-        </div>
+        </Link>
         <div className="flex flex-col absolute top-2 right-0 group-hover:right-6 gap-y-1 opacity-0 group-hover:opacity-100 transition-all duration-300">
           <div className='w-9 h-9 bg-red-500 flex justify-center shadow'>
             <button onClick={() => AddToCart(id, Product)}>
